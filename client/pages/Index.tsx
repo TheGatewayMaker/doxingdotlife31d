@@ -346,9 +346,10 @@ export default function Index() {
       try {
         const response = await fetch("/api/posts");
         const data: PostsResponse = await response.json();
-        setPosts(data.posts);
+        setPosts(Array.isArray(data.posts) ? data.posts : []);
       } catch (error) {
         console.error("Error loading posts:", error);
+        setPosts([]);
       }
     };
 
@@ -356,9 +357,10 @@ export default function Index() {
       try {
         const response = await fetch("/api/servers");
         const data = await response.json();
-        setServers(data.servers || []);
+        setServers(Array.isArray(data.servers) ? data.servers : []);
       } catch (error) {
         console.error("Error loading servers:", error);
+        setServers([]);
       }
     };
 
