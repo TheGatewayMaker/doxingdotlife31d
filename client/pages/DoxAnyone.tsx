@@ -29,18 +29,30 @@ export default function DoxAnyone() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               <div className="bg-muted/50 rounded-lg p-5 sm:p-6 border border-border">
-                <p className="text-xs sm:text-sm font-semibold text-accent mb-2">PAKISTAN</p>
-                <p className="text-2xl sm:text-3xl font-black text-foreground">299</p>
+                <p className="text-xs sm:text-sm font-semibold text-accent mb-2">
+                  PAKISTAN
+                </p>
+                <p className="text-2xl sm:text-3xl font-black text-foreground">
+                  299
+                </p>
                 <p className="text-xs sm:text-sm text-muted-foreground">PKR</p>
               </div>
               <div className="bg-muted/50 rounded-lg p-5 sm:p-6 border border-border">
-                <p className="text-xs sm:text-sm font-semibold text-accent mb-2">UNITED STATES</p>
-                <p className="text-2xl sm:text-3xl font-black text-foreground">1.10</p>
+                <p className="text-xs sm:text-sm font-semibold text-accent mb-2">
+                  UNITED STATES
+                </p>
+                <p className="text-2xl sm:text-3xl font-black text-foreground">
+                  1.10
+                </p>
                 <p className="text-xs sm:text-sm text-muted-foreground">USD</p>
               </div>
               <div className="bg-muted/50 rounded-lg p-5 sm:p-6 border border-border">
-                <p className="text-xs sm:text-sm font-semibold text-accent mb-2">INDIA</p>
-                <p className="text-2xl sm:text-3xl font-black text-foreground">99</p>
+                <p className="text-xs sm:text-sm font-semibold text-accent mb-2">
+                  INDIA
+                </p>
+                <p className="text-2xl sm:text-3xl font-black text-foreground">
+                  99
+                </p>
                 <p className="text-xs sm:text-sm text-muted-foreground">INR</p>
               </div>
             </div>
@@ -63,7 +75,8 @@ export default function DoxAnyone() {
                     Click the Dox Button Below
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Click on the "Dox Now" button to proceed with creating your doxing submission.
+                    Click on the "Dox Now" button to proceed with creating your
+                    doxing submission.
                   </p>
                 </div>
               </div>
@@ -79,7 +92,8 @@ export default function DoxAnyone() {
                     Create a Support Ticket on Discord
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Create a support ticket on our Discord Server with your doxing request details.
+                    Create a support ticket on our Discord Server with your
+                    doxing request details.
                   </p>
                 </div>
               </div>
@@ -95,7 +109,9 @@ export default function DoxAnyone() {
                     Prepare Your Content
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Make sure to have a photo and some details for the specific person you want to dox. The more information you provide, the better.
+                    Make sure to have a photo and some details for the specific
+                    person you want to dox. The more information you provide,
+                    the better.
                   </p>
                 </div>
               </div>
@@ -111,7 +127,8 @@ export default function DoxAnyone() {
                     Payment & Verification
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Complete the payment as per the pricing in your region. One of our moderators will verify your submission.
+                    Complete the payment as per the pricing in your region. One
+                    of our moderators will verify your submission.
                   </p>
                 </div>
               </div>
@@ -127,7 +144,8 @@ export default function DoxAnyone() {
                     Publication
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    After payment confirmation and verification, one of our moderators will post your dox on our website.
+                    After payment confirmation and verification, one of our
+                    moderators will post your dox on our website.
                   </p>
                 </div>
               </div>
