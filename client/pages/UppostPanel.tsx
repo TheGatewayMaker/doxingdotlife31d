@@ -7,19 +7,19 @@ import { UploadIcon, ImageIcon } from "@/components/Icons";
 interface AuthState {
   isAuthenticated: boolean;
   username: string;
+  token: string | null;
 }
-
-const VALID_USERNAME = "uploader81";
-const VALID_PASSWORD = "uploader123";
 
 export default function UppostPanel() {
   const [auth, setAuth] = useState<AuthState>({
     isAuthenticated: false,
     username: "",
+    token: null,
   });
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginError, setLoginError] = useState("");
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
