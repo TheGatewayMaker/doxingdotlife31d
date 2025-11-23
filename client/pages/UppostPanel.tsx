@@ -8,7 +8,7 @@ import { useAuthContext } from "@/contexts/AuthContext";
 
 export default function UppostPanel() {
   const navigate = useNavigate();
-  const { isAuthenticated, username, token, login } = useAuthContext();
+  const { isAuthenticated, username, token, login, logout } = useAuthContext();
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginError, setLoginError] = useState("");
