@@ -76,7 +76,9 @@ export const getMediaUrl = (key: string): string => {
   // Otherwise, construct the public R2 URL
   // For public R2 buckets, the URL format is: https://bucket-name.r2.cloudflarestorage.com
   // Extract the account ID from the endpoint
-  const accountIdMatch = endpoint.match(/https:\/\/([a-z0-9]+)\.r2\.cloudflarestorage\.com/);
+  const accountIdMatch = endpoint.match(
+    /https:\/\/([a-z0-9]+)\.r2\.cloudflarestorage\.com/,
+  );
   if (accountIdMatch) {
     const accountId = accountIdMatch[1];
     // Use public bucket format
