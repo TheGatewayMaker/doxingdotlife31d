@@ -51,18 +51,18 @@ export default function DoxAnyone() {
             <h2 className="text-xl sm:text-2xl font-bold mb-5 sm:mb-6 text-foreground">
               How It Works
             </h2>
-            <div className="space-y-6">
+            <div className="space-y-5 sm:space-y-6">
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-accent text-accent-foreground font-bold">
+                  <div className="flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 rounded-lg bg-accent text-accent-foreground font-bold text-sm sm:text-base">
                     1
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                  <h3 className="text-base sm:text-lg font-semibold text-foreground mb-1 sm:mb-2">
                     Click the Dox Button Below
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     Click on the "Dox Now" button to proceed with creating your doxing submission.
                   </p>
                 </div>
@@ -70,15 +70,15 @@ export default function DoxAnyone() {
 
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-accent text-accent-foreground font-bold">
+                  <div className="flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 rounded-lg bg-accent text-accent-foreground font-bold text-sm sm:text-base">
                     2
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                  <h3 className="text-base sm:text-lg font-semibold text-foreground mb-1 sm:mb-2">
                     Create a Support Ticket on Discord
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     Create a support ticket on our Discord Server with your doxing request details.
                   </p>
                 </div>
@@ -86,15 +86,15 @@ export default function DoxAnyone() {
 
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-accent text-accent-foreground font-bold">
+                  <div className="flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 rounded-lg bg-accent text-accent-foreground font-bold text-sm sm:text-base">
                     3
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                  <h3 className="text-base sm:text-lg font-semibold text-foreground mb-1 sm:mb-2">
                     Prepare Your Content
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     Make sure to have a photo and some details for the specific person you want to dox. The more information you provide, the better.
                   </p>
                 </div>
@@ -102,15 +102,15 @@ export default function DoxAnyone() {
 
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-accent text-accent-foreground font-bold">
+                  <div className="flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 rounded-lg bg-accent text-accent-foreground font-bold text-sm sm:text-base">
                     4
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                  <h3 className="text-base sm:text-lg font-semibold text-foreground mb-1 sm:mb-2">
                     Payment & Verification
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     Complete the payment as per the pricing in your region. One of our moderators will verify your submission.
                   </p>
                 </div>
@@ -118,15 +118,15 @@ export default function DoxAnyone() {
 
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-accent text-accent-foreground font-bold">
+                  <div className="flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 rounded-lg bg-accent text-accent-foreground font-bold text-sm sm:text-base">
                     5
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                  <h3 className="text-base sm:text-lg font-semibold text-foreground mb-1 sm:mb-2">
                     Publication
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     After payment confirmation and verification, one of our moderators will post your dox on our website.
                   </p>
                 </div>
