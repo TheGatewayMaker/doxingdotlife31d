@@ -48,6 +48,28 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Debug endpoint - check environment variables (remove in production)
+  app.get("/api/auth/debug", (_req, res) => {
+    const hasUsername = !!process.env.ADMIN_USERNAME;
+    const hasPassword = !!process.env.ADMIN_PASSWORD;
+    const username = process.env.ADMIN_USERNAME;
+    const password = process.env.ADMIN_PASSWORD;
+
+    res.json({
+      debug: {
+        hasUsername,
+        hasPassword,
+        usernameValue: hasUsername ? username : "NOT SET",
+        passwordValue: hasPassword ? password : "NOT SET",
+        usernameLength: username?.length || 0,
+        passwordLength: password?.length || 0,
+        allEnvKeys: Object.keys(process.env)
+          .filter((k) => k.includes("ADMIN") || k.includes("R2"))
+          .sort(),
+      },
+    });
+  });
+
   // Authentication routes
   app.post("/api/auth/login", handleLogin);
   app.post("/api/auth/logout", handleLogout);
