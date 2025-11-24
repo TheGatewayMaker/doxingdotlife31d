@@ -10,11 +10,7 @@ import {
   handleDeleteMediaFile,
   handleUpdatePost,
 } from "./routes/admin";
-import {
-  handleLogout,
-  handleCheckAuth,
-  authMiddleware,
-} from "./routes/auth";
+import { handleLogout, handleCheckAuth, authMiddleware } from "./routes/auth";
 
 const upload = multer({
   storage: multer.memoryStorage(),
@@ -39,7 +35,6 @@ export function createServer() {
   // JSON and URL-encoded body parsing with proper limits
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ extended: true, limit: "50mb" }));
-
 
   // Health check endpoint
   app.get("/api/health", (_req, res) => {

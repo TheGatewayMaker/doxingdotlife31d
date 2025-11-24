@@ -54,6 +54,7 @@ This guide walks you through setting up Google Sign-In authentication for your D
 ### 2.2 Extract Service Account Credentials
 
 From the downloaded JSON file, you need:
+
 - `project_id`
 - `private_key` (the entire key including `-----BEGIN PRIVATE KEY-----`)
 - `client_email`
@@ -91,6 +92,7 @@ FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxx@doxingdotlife.iam.gserviceaccount.co
 ### Setting Environment Variables on Your Platform
 
 **For Netlify:**
+
 1. Go to your Netlify project settings
 2. Navigate to **Build & deploy** → **Environment**
 3. Click **Edit variables**
@@ -121,6 +123,7 @@ VITE_AUTHORIZED_EMAILS=admin@gmail.com,moderator@gmail.com
 ### Local Testing
 
 1. Start your development server:
+
    ```bash
    npm run dev
    ```
@@ -134,15 +137,18 @@ VITE_AUTHORIZED_EMAILS=admin@gmail.com,moderator@gmail.com
 ### Troubleshooting
 
 **Error: "Firebase configuration is not valid"**
+
 - Verify all `VITE_FIREBASE_*` variables are correct
 - Make sure you've enabled Google Sign-In in Firebase Console
 
 **Error: "Your email is not authorized"**
+
 - Verify your email is in `VITE_AUTHORIZED_EMAILS`
 - Make sure you're using the exact email from your Google account
 - Check for typos and capitalization
 
 **Error: "Token verification failed" on upload**
+
 - Verify `FIREBASE_PROJECT_ID`, `FIREBASE_PRIVATE_KEY`, and `FIREBASE_CLIENT_EMAIL` are correct
 - Make sure the private key has proper formatting with `\n` characters
 - Check that the service account has permission to verify tokens

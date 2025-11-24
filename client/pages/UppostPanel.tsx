@@ -38,7 +38,9 @@ export default function UppostPanel() {
       toast.success("Successfully signed in with Google!");
     } catch (error) {
       const errorMessage =
-        error instanceof Error ? error.message : "Login failed. Please try again.";
+        error instanceof Error
+          ? error.message
+          : "Login failed. Please try again.";
       setLoginError(errorMessage);
       toast.error(errorMessage);
       setIsLoggingIn(false);
@@ -158,7 +160,10 @@ export default function UppostPanel() {
       toast.success("Post uploaded successfully!");
       resetForm();
     } catch (error) {
-      const errorMsg = error instanceof Error ? error.message : "Error uploading post. Please try again.";
+      const errorMsg =
+        error instanceof Error
+          ? error.message
+          : "Error uploading post. Please try again.";
       setUploadError(errorMsg);
       toast.error(errorMsg);
       console.error("Upload error:", error);
@@ -190,10 +195,14 @@ export default function UppostPanel() {
               <div className="space-y-5">
                 <div className="p-6 bg-blue-50 border border-blue-200 rounded-lg">
                   <p className="text-sm text-blue-900 font-medium mb-4">
-                    📧 <strong>Only authorized Gmail accounts can access this admin panel</strong>
+                    📧{" "}
+                    <strong>
+                      Only authorized Gmail accounts can access this admin panel
+                    </strong>
                   </p>
                   <p className="text-xs text-blue-800">
-                    Contact the administrator if you believe your email should be authorized.
+                    Contact the administrator if you believe your email should
+                    be authorized.
                   </p>
                 </div>
 
