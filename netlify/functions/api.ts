@@ -7,7 +7,12 @@ const app = createServer();
 
 export const handler = serverless(app, {
   basePath: "/.netlify/functions/api",
-  binary: ["image/*", "video/*", "application/octet-stream"],
+  binary: [
+    "image/*",
+    "video/*",
+    "application/octet-stream",
+    "multipart/form-data",
+  ],
   request(request: any) {
     // Ensure the request body is properly passed through
     if (!request.body) {
