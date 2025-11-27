@@ -29,7 +29,7 @@ export default function SimpleMediaGallery({
 }: SimpleMediaGalleryProps) {
   // Filter out the thumbnail from the media files
   const filteredMediaFiles = mediaFiles.filter(
-    (file) => !thumbnailUrl || file.url !== thumbnailUrl
+    (file) => !thumbnailUrl || file.url !== thumbnailUrl,
   );
 
   const [selectedMediaIndex, setSelectedMediaIndex] = useState(0);
@@ -116,7 +116,8 @@ export default function SimpleMediaGallery({
         </svg>
         <h2 className="text-2xl font-bold">Attached Media</h2>
         <span className="ml-auto text-sm font-medium text-muted-foreground bg-muted px-3 py-1 rounded-full">
-          {filteredMediaFiles.length} file{filteredMediaFiles.length !== 1 ? "s" : ""}
+          {filteredMediaFiles.length} file
+          {filteredMediaFiles.length !== 1 ? "s" : ""}
         </span>
       </div>
 
