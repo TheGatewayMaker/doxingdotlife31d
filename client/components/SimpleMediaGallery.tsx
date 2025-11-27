@@ -280,9 +280,9 @@ export default function SimpleMediaGallery({
             )}
 
             {/* Media Counter */}
-            {mediaFiles.length > 1 && (
+            {filteredMediaFiles.length > 1 && (
               <div className="absolute bottom-4 right-4 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-medium">
-                {selectedMediaIndex + 1} / {mediaFiles.length}
+                {selectedMediaIndex + 1} / {filteredMediaFiles.length}
               </div>
             )}
           </div>
