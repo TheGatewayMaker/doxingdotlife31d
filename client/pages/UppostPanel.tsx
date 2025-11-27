@@ -19,6 +19,7 @@ export default function UppostPanel() {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [server, setServer] = useState("");
+  const [nsfw, setNsfw] = useState(false);
   const [thumbnail, setThumbnail] = useState<File | null>(null);
   const [thumbnailPreview, setThumbnailPreview] = useState<string>("");
   const [mediaFiles, setMediaFiles] = useState<File[]>([]);
@@ -103,6 +104,7 @@ export default function UppostPanel() {
     setCountry("");
     setCity("");
     setServer("");
+    setNsfw(false);
     setThumbnail(null);
     setThumbnailPreview("");
     setMediaFiles([]);
@@ -154,6 +156,7 @@ export default function UppostPanel() {
     formData.append("country", country);
     formData.append("city", city);
     formData.append("server", server);
+    formData.append("nsfw", String(nsfw));
     formData.append("thumbnail", thumbnail);
 
     mediaFiles.forEach((file) => {
