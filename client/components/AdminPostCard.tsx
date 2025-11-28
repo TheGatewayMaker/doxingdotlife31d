@@ -32,7 +32,7 @@ export default function AdminPostCard({
   return (
     <>
       <div
-        className="bg-card border border-border rounded-lg overflow-hidden hover:border-border hover:shadow-lg transition-all duration-200 animate-fadeIn flex flex-col"
+        className="bg-card border border-border rounded-lg overflow-hidden hover:border-border hover:shadow-lg transition-all duration-200 animate-scaleUpFadeIn flex flex-col hover:-translate-y-1"
         style={{ animationDelay: `${animationDelay}s` }}
       >
         {/* Thumbnail */}
