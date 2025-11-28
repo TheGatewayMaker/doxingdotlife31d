@@ -125,7 +125,7 @@ export default function UppostPanel() {
     setDiscordName("");
     setRealName("");
     setAge("");
-    setEmail("");
+    setPersonalEmail("");
     setIpAddress("");
     setAddress("");
     setPhoneNumber("");
