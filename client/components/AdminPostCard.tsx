@@ -132,15 +132,8 @@ export default function AdminPostCard({
               Media ({post.mediaFiles.length})
             </button>
             <button
-              onClick={() => setShowEditModal(true)}
-              className="px-3 py-2 bg-amber-600 text-white font-medium text-xs rounded-lg hover:bg-amber-700 transition-all flex items-center justify-center gap-1.5 active:scale-95"
-            >
-              <EditIcon className="w-4 h-4" />
-              Edit
-            </button>
-            <button
               onClick={() => onDelete(post.id)}
-              className="px-3 py-2 bg-red-600 text-white font-medium text-xs rounded-lg hover:bg-red-700 transition-all flex items-center justify-center gap-1.5 active:scale-95"
+              className="flex-1 px-3 py-2 bg-red-600 text-white font-medium text-xs rounded-lg hover:bg-red-700 transition-all flex items-center justify-center gap-1.5 active:scale-95"
             >
               <TrashIcon className="w-4 h-4" />
               Delete
