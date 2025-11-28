@@ -23,6 +23,8 @@ export interface Post {
   server?: string;
   thumbnail?: string;
   nsfw?: boolean;
+  isTrend?: boolean;
+  trendRank?: number;
   mediaFiles: Array<{
     name: string;
     url: string;
