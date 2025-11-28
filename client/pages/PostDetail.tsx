@@ -48,7 +48,7 @@ export default function PostDetail() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-[#000000] via-[#1a1a1a] to-[#000000] text-white flex flex-col animate-fadeIn">
+      <div className="min-h-screen bg-[#000000] text-white flex flex-col animate-fadeIn">
         <Header />
         <main className="flex-1 w-full flex items-center justify-center px-4">
           <div className="text-center">
@@ -65,7 +65,7 @@ export default function PostDetail() {
 
   if (error || !post) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-[#000000] via-[#1a1a1a] to-[#000000] text-white flex flex-col animate-fadeIn">
+      <div className="min-h-screen bg-[#000000] text-white flex flex-col animate-fadeIn">
         <Header />
         <main className="flex-1 w-full flex items-center justify-center px-4">
           <div className="text-center">
@@ -91,7 +91,7 @@ export default function PostDetail() {
 
   if (showNSFWWarning && !nsfwApproved && post.nsfw) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-[#000000] via-[#1a1a1a] to-[#000000] text-white flex flex-col animate-fadeIn">
+      <div className="min-h-screen bg-[#000000] text-white flex flex-col animate-fadeIn">
         <Header />
         <main className="flex-1 w-full flex items-center justify-center p-4">
           <NSFWWarningModal
@@ -122,7 +122,7 @@ export default function PostDetail() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#000000] via-[#1a1a1a] to-[#000000] text-white flex flex-col animate-fadeIn">
+    <div className="min-h-screen bg-[#000000] text-white flex flex-col animate-fadeIn">
       <Header />
       <main className="flex-1 w-full">
         <div className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-12">
