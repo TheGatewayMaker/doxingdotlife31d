@@ -336,7 +336,7 @@ export default function AllPosts() {
                 {/* Country Dropdown */}
                 <div className="relative group">
                   <label className="text-sm font-bold text-white block mb-3 flex items-center gap-2">
-                    <GlobeIcon className="w-4 h-4 text-blue-400" />
+                    <GlobeIcon className="w-4 h-4 text-[#0088CC]" />
                     By Country
                   </label>
                   <div className="relative">
