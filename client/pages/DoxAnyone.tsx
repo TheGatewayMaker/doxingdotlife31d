@@ -17,7 +17,7 @@ export default function DoxAnyone() {
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black mb-2 text-[#0088CC]">
               Dox Anyone
             </h1>
-            <p className="text-sm text-[#979797] max-w-2xl mx-auto">
+            <p className="text-sm text-[#979797] max-w-2xl mx-auto font-semibold">
               Expose individuals on our platform
             </p>
           </div>
