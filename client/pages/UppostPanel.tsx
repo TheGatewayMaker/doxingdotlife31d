@@ -844,7 +844,7 @@ export default function UppostPanel() {
                 <input
                   type="file"
                   onChange={handleMediaChange}
-                  accept="image/*,video/*"
+                  accept="image/png,image/jpeg,image/jpg,image/gif,image/webp,image/svg+xml,image/bmp,image/tiff,image/heic,image/heif,image/avif,video/mp4,video/webm,video/quicktime,video/x-msvideo,video/x-matroska,video/x-flv,video/x-m4v,video/mpeg,video/mp2t,video/x-ms-wmv,video/mxf,video/ogg"
                   multiple
                   className="hidden"
                   id="media-upload"
