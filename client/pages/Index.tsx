@@ -614,9 +614,10 @@ export default function Index() {
               )}
             </>
           ) : (
-            <div className="text-center py-16 animate-fadeIn">
-              <p className="text-gray-400 text-base sm:text-lg">
-                No posts match your search criteria. Try adjusting your filters.
+            <div className="text-center py-16 sm:py-20 animate-fadeIn">
+              <div className="text-5xl sm:text-6xl mb-4">🔍</div>
+              <p className="text-gray-400 text-sm sm:text-base max-w-lg mx-auto">
+                No posts match your current search filters. Try adjusting your search terms or filters.
               </p>
             </div>
           )}
