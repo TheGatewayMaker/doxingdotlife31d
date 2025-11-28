@@ -238,7 +238,13 @@ export default function UppostPanel() {
               <div className="space-y-5">
                 <div className="p-6 bg-blue-50 border border-blue-200 rounded-lg">
                   <p className="text-sm text-blue-900 font-medium mb-4 flex items-center gap-2">
-                    <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <svg
+                      className="w-4 h-4 text-blue-600"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
                     <strong>
                       Only authorized Gmail accounts can access this admin panel
                     </strong>
@@ -251,7 +257,13 @@ export default function UppostPanel() {
 
                 {loginError && (
                   <div className="p-4 bg-destructive/10 border border-destructive rounded-lg text-destructive text-sm font-medium animate-fadeIn flex items-center gap-2">
-                    <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    <svg
+                      className="w-4 h-4 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                    </svg>
                     {loginError}
                   </div>
                 )}
@@ -431,12 +443,23 @@ export default function UppostPanel() {
 
             {/* Location Info */}
             <div className="bg-gradient-to-br from-background/40 to-background/20 border border-border/40 rounded-2xl p-6 md:p-8">
-              <h3 className="text-sm font-bold text-foreground mb-6 uppercase tracking-wider opacity-75">Location Information (Optional)</h3>
+              <h3 className="text-sm font-bold text-foreground mb-6 uppercase tracking-wider opacity-75">
+                Location Information (Optional)
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Country */}
                 <div>
                   <label className="block text-sm font-bold mb-3 text-foreground flex items-center gap-2">
-                    <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                    <svg
+                      className="w-4 h-4 text-accent"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                      <path d="M2 12h20" />
+                    </svg>
                     Country
                   </label>
                   <input
@@ -451,7 +474,15 @@ export default function UppostPanel() {
                 {/* City */}
                 <div>
                   <label className="block text-sm font-bold mb-3 text-foreground flex items-center gap-2">
-                    <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <svg
+                      className="w-4 h-4 text-accent"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
                     City
                   </label>
                   <input
@@ -466,7 +497,17 @@ export default function UppostPanel() {
                 {/* Server */}
                 <div>
                   <label className="block text-sm font-bold mb-3 text-foreground flex items-center gap-2">
-                    <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8"/><rect x="2" y="14" width="20" height="8"/><line x1="6" y1="6" x2="6" y2="6.01"/><line x1="6" y1="18" x2="6" y2="18.01"/></svg>
+                    <svg
+                      className="w-4 h-4 text-accent"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <rect x="2" y="2" width="20" height="8" />
+                      <rect x="2" y="14" width="20" height="8" />
+                      <line x1="6" y1="6" x2="6" y2="6.01" />
+                      <line x1="6" y1="18" x2="6" y2="18.01" />
+                    </svg>
                     Server Name
                   </label>
                   <input
@@ -491,15 +532,25 @@ export default function UppostPanel() {
                   onChange={(e) => setNsfw(e.target.checked)}
                   className="w-5 h-5 accent-red-600 rounded cursor-pointer flex-shrink-0"
                 />
-                <label htmlFor="nsfw-checkbox" className="flex-1 cursor-pointer">
+                <label
+                  htmlFor="nsfw-checkbox"
+                  className="flex-1 cursor-pointer"
+                >
                   <div className="flex items-center gap-2 mb-1">
-                    <svg className="w-4 h-4 text-red-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    <svg
+                      className="w-4 h-4 text-red-400 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                    </svg>
                     <p className="text-sm font-bold text-red-400">
                       Mark as NSFW Content
                     </p>
                   </div>
                   <p className="text-xs text-red-300/80 ml-6">
-                    This content is Not Safe For Work and requires age verification
+                    This content is Not Safe For Work and requires age
+                    verification
                   </p>
                 </label>
               </div>
@@ -595,14 +646,26 @@ export default function UppostPanel() {
 
             {uploadMessage && (
               <div className="p-4 bg-green-900/20 border border-green-600/50 rounded-lg text-green-400 text-sm font-medium flex items-center gap-2 animate-fadeIn">
-                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg
+                  className="w-4 h-4 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
                 {uploadMessage}
               </div>
             )}
 
             {uploadError && (
               <div className="p-4 bg-destructive/10 border border-destructive/50 rounded-lg text-destructive text-sm font-medium flex items-center gap-2 animate-fadeIn">
-                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                <svg
+                  className="w-4 h-4 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                </svg>
                 {uploadError}
               </div>
             )}
