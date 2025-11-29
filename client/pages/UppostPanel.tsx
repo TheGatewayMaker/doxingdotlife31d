@@ -178,11 +178,42 @@ export default function UppostPanel() {
       const data = await response.json();
       setUploadMessage("Post uploaded successfully!");
       resetForm();
+      loadPosts();
     } catch (error) {
       setUploadError("Error uploading post. Please try again.");
       console.error("Upload error:", error);
     } finally {
       setUploading(false);
+    }
+  };
+
+  const handleDeletePost = async (postId: string) => {
+    if (
+      !window.confirm(
+        "Are you sure you want to delete this post? This action cannot be undone.",
+      )
+    ) {
+      return;
+    }
+
+    setDeletingPostId(postId);
+    try {
+      const response = await fetch(`/api/posts/${postId}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete post");
+      }
+
+      setPosts((prevPosts) =>
+        prevPosts.filter((post) => post.id !== postId),
+      );
+    } catch (error) {
+      console.error("Error deleting post:", error);
+      alert("Failed to delete post. Please try again.");
+    } finally {
+      setDeletingPostId(null);
     }
   };
 
