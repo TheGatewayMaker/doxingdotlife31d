@@ -71,6 +71,77 @@ const getBucketName = (): string => {
   return bucketName;
 };
 
+export const validateR2Configuration = async (): Promise<{
+  isValid: boolean;
+  message: string;
+  details: { [key: string]: any };
+}> => {
+  const details: { [key: string]: any } = {};
+
+  try {
+    // Check environment variables
+    const accessKeyId = process.env.R2_ACCESS_KEY_ID;
+    const secretAccessKey = process.env.R2_SECRET_ACCESS_KEY;
+    const accountId = process.env.R2_ACCOUNT_ID;
+    const bucketName = process.env.R2_BUCKET_NAME;
+
+    details.hasAccessKeyId = !!accessKeyId;
+    details.hasSecretAccessKey = !!secretAccessKey;
+    details.hasAccountId = !!accountId;
+    details.hasBucketName = !!bucketName;
+
+    if (!accessKeyId || !secretAccessKey || !accountId || !bucketName) {
+      const missing = [];
+      if (!accessKeyId) missing.push("R2_ACCESS_KEY_ID");
+      if (!secretAccessKey) missing.push("R2_SECRET_ACCESS_KEY");
+      if (!accountId) missing.push("R2_ACCOUNT_ID");
+      if (!bucketName) missing.push("R2_BUCKET_NAME");
+
+      return {
+        isValid: false,
+        message: `Missing required R2 environment variables: ${missing.join(", ")}`,
+        details,
+      };
+    }
+
+    // Try to create client
+    const client = getR2Client();
+    details.clientCreated = true;
+
+    // Try to list objects (this validates credentials)
+    try {
+      await client.send(
+        new ListObjectsV2Command({
+          Bucket: bucketName,
+          MaxKeys: 1,
+        }),
+      );
+      details.bucketAccessible = true;
+    } catch (accessError) {
+      details.bucketAccessible = false;
+      details.accessError = accessError instanceof Error ? accessError.message : String(accessError);
+      return {
+        isValid: false,
+        message: `Cannot access R2 bucket "${bucketName}". Check credentials and bucket name.`,
+        details,
+      };
+    }
+
+    return {
+      isValid: true,
+      message: "R2 configuration is valid",
+      details,
+    };
+  } catch (error) {
+    details.error = error instanceof Error ? error.message : String(error);
+    return {
+      isValid: false,
+      message: "Failed to validate R2 configuration",
+      details,
+    };
+  }
+};
+
 export const getMediaUrl = (key: string): string => {
   const publicUrl = process.env.R2_PUBLIC_URL;
 
