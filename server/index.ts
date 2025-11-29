@@ -63,7 +63,9 @@ export function createServer() {
 
     res.json = function (body) {
       const duration = Date.now() - start;
-      console.log(`[${new Date().toISOString()}] ${req.method} ${req.path} - ${res.statusCode} (${duration}ms)`);
+      console.log(
+        `[${new Date().toISOString()}] ${req.method} ${req.path} - ${res.statusCode} (${duration}ms)`,
+      );
       return originalJson.call(this, body);
     };
 
@@ -257,7 +259,11 @@ export function createServer() {
       next: express.NextFunction,
     ) => Promise<any>,
   ) => {
-    return (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    return (
+      req: express.Request,
+      res: express.Response,
+      next: express.NextFunction,
+    ) => {
       Promise.resolve(fn(req, res, next)).catch(next);
     };
   };
@@ -285,8 +291,7 @@ export function createServer() {
         err.status ||
         err.statusCode ||
         (err.name === "MulterError" ? 400 : 500);
-      const message =
-        err.message || "An unexpected error occurred";
+      const message = err.message || "An unexpected error occurred";
       const details =
         process.env.NODE_ENV === "development"
           ? {

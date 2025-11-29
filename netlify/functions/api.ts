@@ -30,7 +30,9 @@ const getServerlessHandler = () => {
       ],
       request: (request: any, event: any, context: any) => {
         // Log request details for debugging
-        console.log(`[${new Date().toISOString()}] ${event.httpMethod} ${event.path}`);
+        console.log(
+          `[${new Date().toISOString()}] ${event.httpMethod} ${event.path}`,
+        );
       },
     });
   }
