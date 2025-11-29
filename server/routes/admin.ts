@@ -81,7 +81,9 @@ export const handleDeleteMediaFile: RequestHandler = async (req, res) => {
       return;
     }
 
-    if (fileName.includes("..") || fileName.includes("/")) {
+    // Validate both postId and fileName to prevent path traversal
+    if (!isValidFilePath(postId) || !isValidFilePath(fileName)) {
+      console.warn(`Invalid path detected - postId: ${postId}, fileName: ${fileName}`);
       res.status(403).json({ error: "Invalid file path" });
       return;
     }
