@@ -14,20 +14,38 @@ export const handleDeletePost: RequestHandler = async (req, res) => {
     const { postId } = req.params;
 
     if (!postId) {
+      console.error("Delete post request missing postId");
       res.status(400).json({ error: "Post ID is required" });
       return;
     }
 
+    console.log(`[${new Date().toISOString()}] Deleting post ${postId}`);
+
     await deletePostFolder(postId);
+
+    console.log(
+      `[${new Date().toISOString()}] ✅ Successfully deleted post ${postId}`,
+    );
 
     res.json({
       success: true,
       message: "Post deleted successfully",
     });
   } catch (error) {
-    console.error("Error deleting post:", error);
     const errorMessage = error instanceof Error ? error.message : String(error);
-    res.status(500).json({ error: `Failed to delete post: ${errorMessage}` });
+    console.error(
+      `[${new Date().toISOString()}] ❌ Error deleting post:`,
+      errorMessage,
+    );
+    console.error("Full error details:", error);
+
+    res.status(500).json({
+      error: "Failed to delete post",
+      details:
+        process.env.NODE_ENV === "development"
+          ? errorMessage
+          : "An error occurred while deleting the post. Please check server logs.",
+    });
   }
 };
 
