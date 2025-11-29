@@ -64,8 +64,23 @@ export const handler = async (event: any, context: any) => {
       `[${new Date().toISOString()}] Incoming ${event.httpMethod} ${event.path}`,
     );
 
+    // Add NETLIFY flag for serverless environment detection
+    if (!process.env.NETLIFY) {
+      process.env.NETLIFY = "true";
+    }
+
     const handler = getServerlessHandler();
     const result = await handler(event, context);
+
+    // Ensure result is always valid JSON
+    if (result && typeof result === 'object') {
+      if (!result.headers) {
+        result.headers = {};
+      }
+      if (!result.headers['Content-Type']) {
+        result.headers['Content-Type'] = 'application/json';
+      }
+    }
 
     return result;
   } catch (error) {
