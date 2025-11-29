@@ -238,12 +238,15 @@ export const handleUpload: RequestHandler = async (req, res, next) => {
         `[${new Date().toISOString()}] ✅ Post ${postId} uploaded successfully`,
       );
 
-      res.json({
-        success: true,
-        message: "Post uploaded successfully",
-        postId,
-        mediaCount: mediaFileNames.length,
-      });
+      if (!res.headersSent) {
+        res.json({
+          success: true,
+          message: "Post uploaded successfully",
+          postId,
+          mediaCount: mediaFileNames.length,
+        });
+        responseSent = true;
+      }
     } catch (r2Error) {
       console.error("R2 upload error:", r2Error);
       const errorMessage =
@@ -253,20 +256,26 @@ export const handleUpload: RequestHandler = async (req, res, next) => {
         stack: r2Error instanceof Error ? r2Error.stack : undefined,
         postId,
       });
-      res.status(500).json({
-        error: `Upload to R2 failed: ${errorMessage}`,
-        details:
-          process.env.NODE_ENV === "development" ? errorMessage : undefined,
-      });
+      if (!res.headersSent) {
+        res.status(500).json({
+          error: `Upload to R2 failed: ${errorMessage}`,
+          details:
+            process.env.NODE_ENV === "development" ? errorMessage : undefined,
+        });
+        responseSent = true;
+      }
       return;
     }
   } catch (error) {
     console.error("Upload error:", error);
     const errorMessage = error instanceof Error ? error.message : String(error);
-    res.status(500).json({
-      error: "Upload failed",
-      details:
-        process.env.NODE_ENV === "development" ? errorMessage : undefined,
-    });
+    if (!res.headersSent) {
+      res.status(500).json({
+        error: "Upload failed",
+        details:
+          process.env.NODE_ENV === "development" ? errorMessage : undefined,
+      });
+      responseSent = true;
+    }
   }
 };
