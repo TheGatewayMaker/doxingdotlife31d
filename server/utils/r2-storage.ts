@@ -331,7 +331,11 @@ export const listPostFiles = async (postId: string): Promise<string[]> => {
               obj.Key !== `posts/${postId}/metadata.json` &&
               obj.Key !== `posts/${postId}/`
             ) {
-              files.push(obj.Key.split("/").pop() || "");
+              const parts = obj.Key.split("/");
+              const fileName = parts[parts.length - 1];
+              if (fileName) {
+                files.push(fileName);
+              }
             }
           }
         }
