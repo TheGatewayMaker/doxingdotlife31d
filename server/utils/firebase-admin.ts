@@ -25,13 +25,29 @@ const initializeFirebaseAdmin = () => {
     return null;
   }
 
-  // Handle both literal \n (from environment strings) and actual newlines
-  // The environment may have the key as a string with literal \n characters
+  // Handle escaped newlines: convert literal \n (backslash-n) to actual newlines
+  // This is needed when the .env file contains \n instead of actual line breaks
   privateKey = privateKey.replace(/\\n/g, "\n");
+
+  // Also handle the case where quotes might be present
+  privateKey = privateKey.trim();
+  if (privateKey.startsWith('"') && privateKey.endsWith('"')) {
+    privateKey = privateKey.slice(1, -1);
+  }
+  if (privateKey.startsWith("'") && privateKey.endsWith("'")) {
+    privateKey = privateKey.slice(1, -1);
+  }
 
   // Validate private key format
   if (!privateKey.includes("BEGIN PRIVATE KEY") || !privateKey.includes("END PRIVATE KEY")) {
-    console.error("Firebase private key format is invalid - missing BEGIN/END markers");
+    console.error(
+      "Firebase private key format is invalid - missing BEGIN/END markers",
+      {
+        hasBegin: privateKey.includes("BEGIN PRIVATE KEY"),
+        hasEnd: privateKey.includes("END PRIVATE KEY"),
+        keyStart: privateKey.substring(0, 50),
+      }
+    );
     return null;
   }
 
