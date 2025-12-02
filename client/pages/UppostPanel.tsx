@@ -195,10 +195,19 @@ export default function UppostPanel() {
     setUploading(true);
 
     try {
-      const idToken = await user?.getIdToken();
-      if (!idToken) {
-        throw new Error("Authentication token not available");
+      // Get the ID token from the current Firebase user
+      if (!user) {
+        throw new Error("User is not authenticated");
       }
+
+      const idToken = await user.getIdToken(true); // Force refresh to get fresh token
+      if (!idToken || idToken.trim().length === 0) {
+        throw new Error("Authentication token not available or empty");
+      }
+
+      console.log(
+        `[Upload] Token obtained successfully. Length: ${idToken.length}`,
+      );
 
       setUploadMessage("Uploading files to server...");
 
