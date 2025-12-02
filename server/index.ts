@@ -15,12 +15,15 @@ import {
 import { handleLogout, handleCheckAuth, authMiddleware } from "./routes/auth";
 import { validateR2Configuration } from "./utils/r2-storage";
 
-// VPS configuration - no size restrictions since you control the server
+// VPS configuration with proper size handling
 // Files are uploaded to server memory, then to R2
+// 500MB total limit for all files combined (adjust if needed)
 const upload = multer({
   storage: multer.memoryStorage(),
-  // No limits - VPS can handle large files
-  // Remove limits to avoid 413 Content Too Large errors
+  limits: {
+    fileSize: 500 * 1024 * 1024, // 500MB per file
+    files: 100, // Allow up to 100 files
+  },
 });
 
 export function createServer() {
@@ -36,10 +39,11 @@ export function createServer() {
     }),
   );
 
-  // JSON and URL-encoded body parsing - no limits for VPS
+  // JSON and URL-encoded body parsing with increased limits for VPS
   // Note: multipart/form-data is NOT parsed by these - it's handled by multer
-  app.use(express.json());
-  app.use(express.urlencoded({ extended: true }));
+  // Set limits to 500MB to allow large payloads
+  app.use(express.json({ limit: "500mb" }));
+  app.use(express.urlencoded({ extended: true, limit: "500mb" }));
 
   // Error handling for body parsing
   app.use(
@@ -130,7 +134,8 @@ export function createServer() {
     res: express.Response,
     next: express.NextFunction,
   ) => {
-    const timeout = 30 * 1000; // 30 seconds for metadata operations
+    // 10 minutes for large file uploads (7-8 photos)
+    const timeout = 10 * 60 * 1000;
 
     try {
       if (req.socket) {
